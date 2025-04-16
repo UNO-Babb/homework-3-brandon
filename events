@@ -1,0 +1,7 @@
+Turn 1a: Player 1, dice roll
+Turn 1b: Player 1, tile #, tile population
+Turn 1c: Player 1, tile minigame
+Turn 1d: Player 1, results += 0
+Repeat for # of players
+Repeat until any player gets 50 points
+If population of tile # > 2 then stack [Player 1, Player 2, Player 3, Player 4]

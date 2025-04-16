@@ -3,59 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hexagon Tile Game</title>
+    <title>Prison Escape Game</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 100px);
+            gap: 5px;
+            justify-items: center;
+        }
+        .tile {
+            width: 80px;
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            border: 2px solid #000;
         }
-        #board {
-            display: grid;
-            grid-template-columns: repeat(10, 60px);
-            grid-template-rows: repeat(10, 52px);
-            gap: 2px;
+        .tile.active {
+            background-color: #FFD700;
         }
-        .hex {
-            width: 60px;
-            height: 52px;
-            background-color: lightgray;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            transition: background-color 0.2s;
+        .player {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-<div id="board">
-    <!-- Hexagonal tiles will be added here on clicks -->
+<h1>Prison Escape Game</h1>
+
+<div class="board">
+    {% for i in range(board_size) %}
+    <div class="tile {% if data['players']['Player1']['position'] == i %}active{% endif %}">
+        {{ data['tiles'][i]['description'] }}
+    </div>
+    {% endfor %}
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Create an empty board of hex tiles
-        for (let i = 0; i < 100; i++) {
-            const hexTile = $('<div class="hex"></div>');
-            hexTile.data("clicked", false);  // Track if a tile has been clicked
-            $('#board').append(hexTile);
-        }
+<div class="player">
+    <h2>Player 1 Position: {{ data['players']['Player1']['position'] }}</h2>
+    <h2>Player 1 Score: {{ data['players']['Player1']['score'] }}</h2>
+</div>
 
-        // Add color to hex tiles on click
-        $('#board').on('click', '.hex', function() {
-            if (!$(this).data("clicked")) {  // Only allow one click per tile
-                $.getJSON('/add_tile', function(data) {
-                    $(this).css('background-color', data.color);
-                    $(this).data("clicked", true);  // Mark as clicked
-                }.bind(this));
-            }
-        });
-    });
-</script>
+<div class="player">
+    <h2>Player 2 Position: {{ data['players']['Player2']['position'] }}</h2>
+    <h2>Player 2 Score: {{ data['players']['Player2']['score'] }}</h2>
+</div>
+
+<div>
+    <button onclick="window.location.href='/roll_dice/Player1'">Roll Dice for Player 1</button>
+    <button onclick="window.location.href='/roll_dice/Player2'">Roll Dice for Player 2</button>
+</div>
+
+<div>
+    <button onclick="window.location.href='/reset'">Reset Game</button>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,66 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    /* Grid layout for the board */
+    .board {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 columns */
+        grid-template-rows: repeat(4, 100px); /* 4 rows */
+        gap: 5px; /* Spacing between tiles */
+        justify-items: center;
+        margin-top: 20px;
+    }
+
+    /* Styling for individual tiles */
+    .tile {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        border: 2px solid #000;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Active tile (the one where the player is located) */
+    .tile.active {
+        background-color: #FFD700; /* Highlight color */
+    }
+
+    /* Styling for player information (position and score) */
+    .player {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    /* Styling for buttons */
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #45a049; /* Hover effect */
+    }
+
+    /* Styling for reset button */
+    button:last-of-type {
+        background-color: #f44336;
+    }
+
+    button:last-of-type:hover {
+        background-color: #e53935;
+    }
+</style>

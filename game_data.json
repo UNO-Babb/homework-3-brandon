@@ -1,0 +1,74 @@
+{
+    "tiles": [
+        {
+            "description": "Start"
+        },
+        {
+            "description": "Prison"
+        },
+        {
+            "description": "Cafeteria"
+        },
+        {
+            "description": "Shower"
+        },
+        {
+            "description": "Yard"
+        },
+        {
+            "description": "Library"
+        },
+        {
+            "description": "Mess Hall"
+        },
+        {
+            "description": "Hallway"
+        },
+        {
+            "description": "Work"
+        },
+        {
+            "description": "Cell"
+        },
+        {
+            "description": "Cafeteria"
+        },
+        {
+            "description": "Prison Yard"
+        },
+        {
+            "description": "Shower"
+        },
+        {
+            "description": "Library"
+        },
+        {
+            "description": "Mess Hall"
+        },
+        {
+            "description": "Hallway"
+        },
+        {
+            "description": "Yard"
+        },
+        {
+            "description": "Work"
+        },
+        {
+            "description": "Cell"
+        },
+        {
+            "description": "End"
+        }
+    ],
+    "players": {
+        "Player1": {
+            "position": 14,
+            "score": 0
+        },
+        "Player2": {
+            "position": 14,
+            "score": 0
+        }
+    }
+}
